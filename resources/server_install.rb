@@ -65,7 +65,7 @@ action :create do
     mode '640'
     sensitive true
     content "use mysql;
-update user set password=PASSWORD('#{mariadb_root_password}') where User='root';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '#{mariadb_root_password}';
 flush privileges;"
     action :nothing
   end
